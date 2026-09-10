@@ -28,6 +28,7 @@ export function Footer() {
                 <Link href="/portfolio" className="text-[13px] sm:text-[14px] text-gray-600 hover:text-gray-900 transition-colors duration-300">Bolag</Link>
                 <Link href="/about" className="text-[13px] sm:text-[14px] text-gray-600 hover:text-gray-900 transition-colors duration-300">Studio</Link>
                 <Link href="/knowledge" className="text-[13px] sm:text-[14px] text-gray-600 hover:text-gray-900 transition-colors duration-300">Insikter</Link>
+                <Link href="/news" className="text-[13px] sm:text-[14px] text-gray-600 hover:text-gray-900 transition-colors duration-300">Nyheter</Link>
                 <Link href="/kontakt" className="text-[13px] sm:text-[14px] text-gray-600 hover:text-gray-900 transition-colors duration-300">Kontakt</Link>
               </div>
             </div>

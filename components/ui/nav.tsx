@@ -8,6 +8,7 @@ const navLinks = [
   { label: "Bolag", href: "/portfolio" },
   { label: "Studio", href: "/about" },
   { label: "Insikter", href: "/knowledge" },
+  { label: "Nyheter", href: "/news" },
   { label: "Kontakt", href: "/kontakt" },
 ]
 

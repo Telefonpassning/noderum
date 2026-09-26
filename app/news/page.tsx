@@ -1,10 +1,12 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
+import { menodiUpdate } from "@/lib/menodi-update"
 
 export const metadata: Metadata = { title: "Nyheter", description: "Senaste nyheterna från Noderum.", alternates: { canonical: "/news" } }
 
 const items = [
+  { slug: "menodi-produktuppdatering", date: menodiUpdate.date, title: menodiUpdate.title },
   { slug: "menodi-lansering", date: "2026.06.01", title: "Noderum lanserar Menodi — AI-receptionist för svenska SMB" },
   { slug: "websiteforge-live", date: "2026.05.15", title: "WebsiteForge går live — hemsidor på under 48 timmar" },
   { slug: "noderum-grundas", date: "2026.04.01", title: "Noderum grundas — en ny venture studio för operativa AI-bolag" },

@@ -1,18 +1,26 @@
 import type { Metadata } from "next"
 import Link from "next/link"
+import Image from "next/image"
 import { notFound } from "next/navigation"
 import { ArrowLeft, ArrowUpRight } from "lucide-react"
 import { linkifyFirst, linkifyMany, toIsoDate } from "@/lib/seo"
+import { menodiUpdate } from "@/lib/menodi-update"
 
 type NewsItem = {
   title: string
   date: string
   body: string[]
+  description?: string
+  seoTitle?: string
+  modified?: string
+  cover?: { src: string; width: number; height: number; alt: string; caption: string }
+  sections?: { title: string; paragraphs: string[]; links?: { match: string; href: string }[]; questions?: { question: string; answer: string; links?: { match: string; href: string }[] }[] }[]
   linksByParagraph?: Record<number, { match: string; href: string }[]>
   related?: { href: string; label: string }[]
 }
 
 export const NEWS: Record<string, NewsItem> = {
+  "menodi-produktuppdatering": menodiUpdate,
   "menodi-lansering": {
     title: "Noderum lanserar Menodi — AI-receptionist för svenska SMB",
     date: "2026.06.01",
@@ -62,7 +70,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
   const n = NEWS[slug]
   if (!n) return { title: "Not found" }
-  return { title: n.title, description: n.body[0], alternates: { canonical: `/news/${slug}` } }
+  const description = n.description ?? n.body[0]
+  const title = n.seoTitle ?? n.title
+  const images = n.cover ? [{ url: n.cover.src, width: n.cover.width, height: n.cover.height, alt: n.cover.alt, type: "image/jpeg" }] : ["/og-image.svg"]
+  return {
+    title, description,
+    alternates: { canonical: `/news/${slug}` },
+    authors: [{ name: "Noderum", url: "https://www.noderum.se/about" }],
+    category: "Produktuppdateringar",
+    robots: { index: true, follow: true, "max-image-preview": "large" },
+    openGraph: { title, description, type: "article", url: `/news/${slug}`, siteName: "Noderum", locale: "sv_SE", publishedTime: toIsoDate(n.date), modifiedTime: toIsoDate(n.modified ?? n.date), images },
+    twitter: { card: "summary_large_image", title, description, images },
+  }
 }
 
 export default async function NewsArticle({ params }: Props) {
@@ -74,6 +93,10 @@ export default async function NewsArticle({ params }: Props) {
     "@context": "https://schema.org",
     "@type": "NewsArticle",
     headline: n.title,
+    description: n.description ?? n.body[0],
+    inLanguage: "sv-SE",
+    dateModified: toIsoDate(n.modified ?? n.date),
+    ...(n.cover ? { image: { "@type": "ImageObject", url: `https://www.noderum.se${n.cover.src}`, width: n.cover.width, height: n.cover.height, caption: n.cover.caption } } : {}),
     datePublished: toIsoDate(n.date),
     author: { "@type": "Organization", name: "Noderum" },
     publisher: { "@type": "Organization", name: "Noderum", url: "https://www.noderum.se" },
@@ -89,12 +112,33 @@ export default async function NewsArticle({ params }: Props) {
       <article className="max-w-[1440px] mx-auto px-5 sm:px-8 md:px-12 pb-24">
         <p className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.2em] text-gray-500 mb-4">{n.date} / News</p>
         <h1 className="text-[clamp(1.5rem,4vw,2.5rem)] font-semibold text-gray-900 tracking-tight leading-[1.05] mb-10 max-w-[800px]">{n.title}</h1>
+        {n.cover && (
+          <figure className="max-w-[1120px] mb-10">
+            <Image src={n.cover.src} alt={n.cover.alt} width={n.cover.width} height={n.cover.height} sizes="(max-width: 768px) 100vw, (max-width: 1280px) 90vw, 1120px" preload className="w-full h-auto rounded-2xl" />
+            <figcaption className="mt-3 text-sm text-gray-500">{n.cover.caption}</figcaption>
+          </figure>
+        )}
         <div className="max-w-[680px]">
           {n.body.map((p, i) => {
             const custom = n.linksByParagraph?.[i]
             const content = custom ? linkifyMany(p, custom) : linkifyFirst(p, "menodi.se", "https://menodi.se")
             return <p key={i} className="text-[15px] sm:text-[16px] text-gray-600 leading-relaxed mb-6">{content}</p>
           })}
+
+          {n.sections?.map((section) => (
+            <section key={section.title} className="mb-10">
+              <h2 className="text-[22px] sm:text-[26px] font-semibold tracking-tight text-gray-900 mt-10 mb-5">{section.title}</h2>
+              {section.paragraphs.map((paragraph, index) => (
+                <p key={index} className="text-[15px] sm:text-[16px] text-gray-600 leading-relaxed mb-6">{section.links ? linkifyMany(paragraph, section.links) : paragraph}</p>
+              ))}
+              {section.questions?.map((item) => (
+                <div key={item.question} className="mb-6">
+                  <h3 className="text-[17px] font-semibold text-gray-900 mb-2">{item.question}</h3>
+                  <p className="text-[15px] sm:text-[16px] text-gray-600 leading-relaxed">{item.links ? linkifyMany(item.answer, item.links) : item.answer}</p>
+                </div>
+              ))}
+            </section>
+          ))}
 
           {n.related && (
             <div className="rounded-2xl bg-white p-6 sm:p-8 mb-8">

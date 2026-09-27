@@ -5,6 +5,7 @@ import { notFound } from "next/navigation"
 import { ArrowLeft, ArrowUpRight } from "lucide-react"
 import { linkifyFirst, linkifyMany, toIsoDate } from "@/lib/seo"
 import { menodiUpdate } from "@/lib/menodi-update"
+import { automatedArticles } from "@/lib/automated-content"
 
 type NewsItem = {
   title: string
@@ -20,6 +21,7 @@ type NewsItem = {
 }
 
 export const NEWS: Record<string, NewsItem> = {
+  ...automatedArticles("blog"),
   "menodi-produktuppdatering": menodiUpdate,
   "menodi-lansering": {
     title: "Noderum lanserar Menodi — AI-receptionist för svenska SMB",

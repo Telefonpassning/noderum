@@ -2,9 +2,11 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { ArrowLeft } from "lucide-react"
-import { linkifyFirst, toIsoDate } from "@/lib/seo"
+import { linkifyFirst, linkifyMany, toIsoDate } from "@/lib/seo"
+import { automatedArticles } from "@/lib/automated-content"
 
-export const ARTICLES: Record<string, { title: string; date: string; tag: string; body: string[] }> = {
+export const ARTICLES: Record<string, { title: string; date: string; tag: string; body: string[]; description?: string; links?: { match: string; href: string }[]; sourceUrl?: string }> = {
+  ...automatedArticles("guider"),
   "ai-receptionist-smb": { title: "Varför varje hantverkare behöver en AI-receptionist 2026", date: "2026.06.10.", tag: "AI", body: ["Svenska små och medelstora företag missar i snitt 30% av alla inkommande samtal. För en hantverkare med tre anställda kan det betyda hundratusentals kronor i förlorade intäkter varje år.", "En AI-receptionist ändrar den kalkylen genom att fånga varje affärsmöjlighet dygnet runt, utan att företaget behöver anställa en receptionist på heltid.", "Menodi, vårt första bolag, byggdes för just det scenariot: en svensk AI-receptionist som förstår hantverkarens vardag, från akuta läckor och offertförfrågningar till vanliga bokningar, i svensk kontext och med svenska arbetsflöden.", "För hantverkaren betyder det mindre tid i telefon och mer tid på jobbet. För kunden betyder det att någon svarar även klockan 22 en lördagskväll när vattenledningen har sprungit läck."] },
   "bygga-ai-bolag-sverige": { title: "Att bygga AI-bolag i Sverige", date: "2026.05.28.", tag: "Venture", body: ["Silicon Valley bygger plattformar som ska passa alla. Det är en beprövad strategi för global skala, men den passar sällan AI-bolag som ska verka på den svenska marknaden.", "Svenska SMB har specifika behov. De pratar svenska, följer svenska regler och använder svenska betalsystem, och en AI byggd i San Francisco vet sällan skillnaden mellan ROT och RUT.", "Vår approach är bottom-up. Vi börjar med ett specifikt kundproblem hos en specifik bransch och bygger en helhetslösning för just dem.", "Medan branschen jagar AGI bygger vi vertikala AI-bolag som fungerar i verkligheten redan idag."] },
   "agande-som-drivkraft": { title: "Ägande som drivkraft", date: "2026.05.15.", tag: "Operation", body: ["Det finns en grundläggande skillnad mellan att bygga något du äger och att bygga något åt någon annan. Konsulter optimerar för timtaxa. Operatörer optimerar för långsiktig lönsamhet.", "På Noderum får operatörer riktigt ägande från dag ett, inte optioner utan faktiskt ägande i bolaget de bygger. Det förändrar hur man fattar beslut.", "När du äger resultatet tänker du annorlunda kring varje beslut: ska vi lägga tid på en feature en kund efterfrågar, eller på det som faktiskt driver MRR?", "Noderum är ingen konsultbyrå, utan en venture studio. Vi äger det vi bygger, och vi anställer människor som vill äga det tillsammans med oss."] },
@@ -22,7 +24,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
   const a = ARTICLES[slug]
   if (!a) return { title: "Not found" }
-  return { title: a.title, description: a.body[0], alternates: { canonical: `/knowledge/${slug}` } }
+  const description = a.description ?? a.body[0]
+  return { title: a.title, description, alternates: { canonical: `/knowledge/${slug}` }, openGraph: { title: a.title, description, type: "article", url: `/knowledge/${slug}`, images: ["/og-image.svg"] } }
 }
 export default async function KnowledgeArticle({ params }: Props) {
   const { slug } = await params
@@ -53,8 +56,9 @@ export default async function KnowledgeArticle({ params }: Props) {
         <h1 className="text-[clamp(1.5rem,4vw,2.5rem)] font-semibold text-gray-900 tracking-tight leading-[1.05] mb-10 max-w-[800px]">{a.title}</h1>
         <div className="max-w-[680px]">
           {a.body.map((p, i) => (
-            <p key={i} className="text-[15px] sm:text-[16px] text-gray-600 leading-relaxed mb-6">{linkifyFirst(p, "Menodi", "https://menodi.se/", "Menodi – AI-receptionist för företag")}</p>
+            <p key={i} className="text-[15px] sm:text-[16px] text-gray-600 leading-relaxed mb-6">{a.links ? linkifyMany(p, a.links) : linkifyFirst(p, "Menodi", "https://menodi.se/", "Menodi – AI-receptionist för företag")}</p>
           ))}
+          {a.sourceUrl && <p className="text-sm text-gray-600 mb-6">Fördjupning: <a href={a.sourceUrl} title="Läs underlaget hos Menodi" className="underline underline-offset-4">Läs guiden hos Menodi</a>.</p>}
           {["ai-receptionist-smb", "smb-digitalisering", "bygga-ai-bolag-sverige"].includes(slug) && (
             <p className="text-[15px] text-gray-600 leading-relaxed mb-6">
               Se ett praktiskt exempel i <Link href="/news/menodi-produktuppdatering" className="text-gray-900 underline underline-offset-4">Menodis produktuppdatering om appen, vidarekoppling och prisberäkning</Link>.

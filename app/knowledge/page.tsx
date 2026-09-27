@@ -1,9 +1,11 @@
 import type { Metadata } from "next"
 import { FilterPillsClient } from "./filter-pills-client"
+import { automatedContent } from "@/lib/automated-content"
 
 export const metadata: Metadata = { title: "Insikter", description: "Tankar om AI, venture och svenska SMB.", alternates: { canonical: "/knowledge" } }
 
 const articles = [
+  ...automatedContent.filter(item => item.kind === "guider").sort((a, b) => b.date.localeCompare(a.date)).map(item => ({ ...item, tag: "AI", excerpt: item.description })),
   { slug: "ai-receptionist-smb", date: "2026.06.10.", tag: "AI", title: "Varför varje hantverkare behöver en AI-receptionist 2026", excerpt: "Svenska SMB missar i snitt 30% av alla inkommande samtal. En AI-receptionist kan ändra på det, utan att ersätta en enda anställd." },
   { slug: "bygga-ai-bolag-sverige", date: "2026.05.28.", tag: "Venture", title: "Att bygga AI-bolag i Sverige: varför vi går bottom-up istället för top-down", excerpt: "Silicon Valley bygger plattformar som ska passa alla. Vi bygger bolag som passar en specifik kund." },
   { slug: "agande-som-drivkraft", date: "2026.05.15.", tag: "Operation", title: "Ägande som drivkraft: varför operatörer bygger bättre bolag än konsulter", excerpt: "När du äger resultatet tänker du annorlunda. Du optimerar för långsiktig lönsamhet, inte för timtaxa." },

@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
 import { DemoCallTrigger } from "@/components/demo-call/DemoCallTrigger"
 
@@ -70,14 +71,19 @@ export default function PortfolioPage() {
           vår AI-receptionist för hantverkare.
         </p>
         <a
-          href="https://menodi.se"
+          href="https://menodi.se/funktioner"
+          title="Menodis funktioner för samtal, bokning och uppföljning"
           target="_blank"
           rel="noopener noreferrer"
           className="group inline-flex items-center gap-1 text-[13px] font-medium text-gray-900 hover:text-gray-500 transition-colors duration-300 mt-4"
         >
-          Besök menodi.se
+          Utforska Menodis funktioner
           <ArrowUpRight size={12} className="transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:-rotate-45" />
         </a>
+        <p className="mt-4 text-[13px] text-gray-600 leading-relaxed max-w-[680px]">
+          Läs om <a href="https://menodi.se/telefonpassning" title="Telefonpassning för företag med Menodi" className="underline underline-offset-4">telefonpassning för företag</a> och jämför <a href="https://menodi.se/priser" title="Priser och planer för Menodis AI-receptionist" className="underline underline-offset-4">Menodis priser och planer</a>.
+          {" "}<Link href="/news/menodi-produktuppdatering" className="underline underline-offset-4">Se det senaste om Menodis app, röst och vidarekoppling</Link>.
+        </p>
       </div>
 
       {/* 02 — Stealth: Marketing */}

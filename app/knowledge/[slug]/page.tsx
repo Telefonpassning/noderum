@@ -53,8 +53,14 @@ export default async function KnowledgeArticle({ params }: Props) {
         <h1 className="text-[clamp(1.5rem,4vw,2.5rem)] font-semibold text-gray-900 tracking-tight leading-[1.05] mb-10 max-w-[800px]">{a.title}</h1>
         <div className="max-w-[680px]">
           {a.body.map((p, i) => (
-            <p key={i} className="text-[15px] sm:text-[16px] text-gray-600 leading-relaxed mb-6">{linkifyFirst(p, "Menodi", "https://menodi.se")}</p>
+            <p key={i} className="text-[15px] sm:text-[16px] text-gray-600 leading-relaxed mb-6">{linkifyFirst(p, "Menodi", "https://menodi.se/", "Menodi – AI-receptionist för företag")}</p>
           ))}
+          {["ai-receptionist-smb", "smb-digitalisering", "bygga-ai-bolag-sverige"].includes(slug) && (
+            <p className="text-[15px] text-gray-600 leading-relaxed mb-6">
+              Se ett praktiskt exempel i <Link href="/news/menodi-produktuppdatering" className="text-gray-900 underline underline-offset-4">Menodis produktuppdatering om appen, vidarekoppling och prisberäkning</Link>.
+              {" "}Utforska <a href="https://menodi.se/funktioner" title="Menodis funktioner för samtal och bokning" className="text-gray-900 underline underline-offset-4">Menodis funktioner för företag</a>.
+            </p>
+          )}
           <div className="border-t border-black/10 pt-8 mt-8">
             <Link href="/knowledge" className="group inline-flex items-center gap-2 text-[14px] font-medium text-gray-900 hover:text-gray-500 transition-colors duration-300">
               <ArrowLeft size={14} className="transition-transform duration-300 group-hover:-translate-x-1" />

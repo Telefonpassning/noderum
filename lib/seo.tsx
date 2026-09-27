@@ -1,6 +1,6 @@
 import type { ReactNode } from "react"
 
-export function linkifyFirst(text: string, match: string, href: string): ReactNode[] {
+export function linkifyFirst(text: string, match: string, href: string, title = match): ReactNode[] {
   const idx = text.indexOf(match)
   if (idx === -1) return [text]
   return [
@@ -8,6 +8,7 @@ export function linkifyFirst(text: string, match: string, href: string): ReactNo
     <a
       key={href}
       href={href}
+      title={title}
       target="_blank"
       rel="noopener noreferrer"
       className="text-gray-900 underline decoration-black/20 underline-offset-2 hover:decoration-black/50 transition-colors"
@@ -18,11 +19,11 @@ export function linkifyFirst(text: string, match: string, href: string): ReactNo
   ]
 }
 
-export function linkifyMany(text: string, replacements: { match: string; href: string }[]): ReactNode[] {
+export function linkifyMany(text: string, replacements: { match: string; href: string; title?: string }[]): ReactNode[] {
   const hits = replacements
     .map((r) => ({ ...r, idx: text.indexOf(r.match) }))
     .filter((r) => r.idx !== -1)
-    .sort((a, b) => a.idx - b.idx)
+    .sort((a, b) => a.idx - b.idx || b.match.length - a.match.length)
 
   const nodes: ReactNode[] = []
   let cursor = 0
@@ -33,6 +34,7 @@ export function linkifyMany(text: string, replacements: { match: string; href: s
       <a
         key={hit.href}
         href={hit.href}
+        title={hit.title ?? hit.match}
         target="_blank"
         rel="noopener noreferrer"
         className="text-gray-900 underline decoration-black/20 underline-offset-2 hover:decoration-black/50 transition-colors"

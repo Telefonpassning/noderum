@@ -45,20 +45,24 @@ export function ProjectCards() {
               Pilotkunder rapporterar 40% färre missade samtal.
             </p>
             <div className="flex items-center justify-between mt-auto">
-              <div className="flex items-center gap-3">
+              <div className="flex flex-wrap items-center gap-3">
                 <span className="text-[12px] text-gray-500">Pilotdrift med betalande kunder</span>
                 <a
-                  href="https://menodi.se"
+                  href="https://menodi.se/"
+                  title="Menodi – AI-receptionist för företag"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group inline-flex items-center gap-1 text-[12px] font-medium text-gray-900 hover:text-gray-500 transition-colors duration-300"
                 >
-                  menodi.se
+                  Menodi – AI-receptionist för företag
                   <ArrowUpRight size={10} className="transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:-rotate-45" />
                 </a>
               </div>
               <div className="h-2 w-2 rounded-full bg-emerald-400/60 shadow-[0_0_8px_rgba(52,211,153,0.4)]" />
             </div>
+            <Link href="/news/menodi-produktuppdatering" title="Menodis produktuppdatering: appen, rösten och vidarekopplingen" className="mt-4 text-[13px] text-gray-600 underline underline-offset-4 hover:text-gray-900">
+              Så utvecklas Menodi: appen, rösten och vidarekopplingen
+            </Link>
           </div>
         </div>
 

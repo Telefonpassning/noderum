@@ -17,13 +17,14 @@ export default function AboutPage() {
         <p className="text-[15px] sm:text-[16px] text-gray-600 max-w-[680px] leading-relaxed">En venture studio som grundar, äger och driver operativa AI-företag, från första raden kod till första betalande kund.</p>
       </section>
 
-      {sections.map((s, i) => (
+      {sections.map((s) => (
         <section key={s.id} id={s.id} className="border-t border-black/10">
           <div className="max-w-[1440px] mx-auto px-5 sm:px-8 md:px-12 py-16 md:py-24">
             <p className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.2em] text-gray-500 mb-4">0{s.num}</p>
             <h2 className="text-[clamp(1.5rem,4vw,2.5rem)] font-semibold text-gray-900 tracking-tight leading-[0.95] mb-4">{s.title}</h2>
             <p className="text-[16px] sm:text-[18px] text-gray-900 font-medium mb-4 max-w-[680px] leading-relaxed">{s.lead}</p>
             <p className="text-[14px] sm:text-[15px] text-gray-600 max-w-[680px] leading-relaxed">{s.body}</p>
+            {s.id === "company" && <p className="mt-4 text-[14px] sm:text-[15px] text-gray-600 max-w-[680px] leading-relaxed">Ett konkret exempel är <a href="https://menodi.se/" title="Menodi – AI-receptionist för företag" className="text-gray-900 underline underline-offset-4">Menodi, vår AI-receptionist för företag</a>, som hjälper verksamheter med inkommande samtal.</p>}
           </div>
         </section>
       ))}

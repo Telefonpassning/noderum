@@ -17,6 +17,7 @@ export function Footer() {
               <p className="text-[13px] sm:text-[14px] text-gray-600 leading-relaxed max-w-[260px]">
                 Vi grundar, äger och driver operativa AI-företag för svenska SMB.
               </p>
+              <p className="text-[13px] text-gray-600 mt-4">Våra bolag: <a href="https://menodi.se/" title="Menodi – AI-receptionist för företag" className="underline underline-offset-4 hover:text-gray-900">Menodi</a></p>
             </div>
 
             {/* Navigera */}

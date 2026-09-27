@@ -29,8 +29,8 @@ export const NEWS: Record<string, NewsItem> = {
       "Menodi är resultatet av sex månaders utveckling och pilotdrift med utvalda kunder inom hantverk, salong, restaurang och konsultverksamhet. Pilotkunderna rapporterar i snitt 40% färre missade samtal.",
       "Menodi använder ElevenLabs röstteknologi för naturlig, svensk konversation och integrerar med Google Calendar för sömlös bokning.",
       "Under huven är produkten uppdelad i tre kärnfunktioner: samtalshantering som svarar och triagerar varje inkommande samtal, kalendersync som bokar direkt i kundens befintliga kalender, och sms-bekräftelse som skickar automatisk bekräftelse till slutkunden efter varje bokat besök.",
-      "Piloten har kört mot flera hantverksbranscher, bland annat bygg, VVS och el, där ett missat samtal ofta betyder en förlorad offert. Menodi finns nu även som en dedikerad lösning för hantverkare, med fullständig prissättning tillgänglig på menodi.se/priser.",
-      "Tjänsten finns tillgänglig från och med idag på menodi.se, med mer information om bolaget bakom produkten på menodi.se/om.",
+      "Piloten har kört mot flera hantverksbranscher, bland annat bygg, VVS och el, där ett missat samtal ofta betyder en förlorad offert. Menodi finns nu även som en dedikerad lösning för hantverkare, med fullständig information om Menodis priser och planer.",
+      "Tjänsten finns tillgänglig från och med idag hos Menodi – AI-receptionist för företag. Läs mer om företaget bakom Menodi.",
     ],
     linksByParagraph: {
       3: [
@@ -40,19 +40,19 @@ export const NEWS: Record<string, NewsItem> = {
       ],
       4: [
         { match: "en dedikerad lösning för hantverkare", href: "https://menodi.se/ai-receptionist-hantverkare" },
-        { match: "menodi.se/priser", href: "https://menodi.se/priser" },
+        { match: "Menodis priser och planer", href: "https://menodi.se/priser" },
       ],
       5: [
-        { match: "menodi.se", href: "https://menodi.se" },
-        { match: "menodi.se/om", href: "https://menodi.se/om" },
+        { match: "Menodi – AI-receptionist för företag", href: "https://menodi.se/" },
+        { match: "företaget bakom Menodi", href: "https://menodi.se/om" },
       ],
     },
     related: [
       { href: "https://menodi.se", label: "Menodi — AI-receptionist" },
-      { href: "https://menodi.se/priser", label: "Priser" },
-      { href: "https://menodi.se/funktioner", label: "Alla funktioner" },
+      { href: "https://menodi.se/priser", label: "Menodis priser och planer" },
+      { href: "https://menodi.se/funktioner", label: "Menodis funktioner" },
       { href: "https://menodi.se/ai-receptionist-hantverkare", label: "AI-receptionist för hantverkare" },
-      { href: "https://menodi.se/branscher", label: "Branscher vi byggt för" },
+      { href: "https://menodi.se/branscher", label: "Branscher som Menodi hjälper" },
       { href: "https://menodi.se/integrationer/google-calendar", label: "Google Calendar-integrationen" },
     ],
   },
@@ -148,6 +148,7 @@ export default async function NewsArticle({ params }: Props) {
                   <li key={r.href}>
                     <a
                       href={r.href}
+                      title={r.label}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="group inline-flex items-center gap-1 text-[14px] font-medium text-gray-900 hover:text-gray-500 transition-colors duration-300"
@@ -161,6 +162,8 @@ export default async function NewsArticle({ params }: Props) {
             </div>
           )}
 
+          {slug === "menodi-lansering" && <p className="mt-8 text-[15px] text-gray-600">Läs fortsättningen: <Link href="/news/menodi-produktuppdatering" className="text-gray-900 underline underline-offset-4">Menodis app, röstmodeller och vidarekoppling idag</Link>.</p>}
+          {slug === "menodi-produktuppdatering" && <p className="mt-8 text-[15px] text-gray-600">Bakgrund: <Link href="/news/menodi-lansering" className="text-gray-900 underline underline-offset-4">När Noderum lanserade Menodi</Link>.</p>}
           <div className="border-t border-black/10 pt-8 mt-8">
             <Link href="/news" className="group inline-flex items-center gap-2 text-[14px] font-medium text-gray-900 hover:text-gray-500 transition-colors duration-300">
               <ArrowLeft size={14} className="transition-transform duration-300 group-hover:-translate-x-1" />

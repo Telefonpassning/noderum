@@ -1,1 +1,30 @@
-[]
+[
+  {
+    "slug": "vidarekoppling-som-affarsbeslut",
+    "title": "Vidarekoppling som affärsbeslut: var ska samtalen egentligen landa?",
+    "description": "Vidarekoppling är enkel att slå på men svårare att styra. Här är frågorna ett företag bör ställa innan samtalen skickas vidare.",
+    "body": [
+      "Noderum är studion bakom Menodi, och den här texten är skriven utifrån vår egen analys av hur företag hanterar inkommande samtal. Källan är vår guide om vidarekoppling, men fokus här ligger inte på tekniken i sig – utan på de beslut som tekniken tvingar fram.",
+      "Vidarekoppling beskrivs ofta som en enkel inställning: inkommande samtal skickas till ett annat nummer, antingen alltid eller bara i vissa lägen, till exempel vid upptaget, uteblivet svar eller när telefonen är utan täckning. Det stämmer, men det är också hela problemet. Inställningen är lätt att aktivera och lätt att glömma bort. Frågan är inte om du kan koppla vidare, utan vart samtalen tar vägen och vad som händer när de kommer fram.",
+      "Tänk dig ett mindre företag där ägaren kopplar vidare alla samtal till sin egen mobil under en period av hög arbetsbelastning. Det fungerar tills mobilen ligger i ett möte, tills batteriet tar slut eller tills ägaren är sjuk. Vidarekoppling flyttar bara problemet – den löser inte att någon faktiskt behöver svara, förstå ärendet och göra något med det. Samma sak gäller villkorlig vidarekoppling: den som ringer får ringa först, vänta, och sedan skickas vidare till ett nummer där ingen svarar. Kunden har då gjort två försök och fått noll svar.",
+      "Den första frågan ett företag bör ställa är därför: vad är ett svar värt? Om ett missat samtal i praktiken är en förlorad bokning, en förlorad offertförfrågan eller en kund som ringer konkurrenten, då är vidarekoppling inte en teknisk detalj utan en intäktsfråga. Då räcker det inte att koppla vidare till \"någon\" – det måste finnas en mottagare som faktiskt svarar, dygnet runt, och som kan ta emot informationen på ett användbart sätt.",
+      "Den andra frågan är: vem ska svara, och med vilken behörighet? En vidarekoppling till en röstbrevlåda är tekniskt sett en vidarekoppling, men den löser ingenting. En vidarekoppling till en kollega kan fungera i undantagsfall, men skapar beroenden och riskerar att flytta arbetsbelastning snarare än att hantera den. En vidarekoppling till en extern svarstjänst eller en AI-receptionist är ett annat slags beslut: då köper man en funktion, inte bara en omdirigering.",
+      "Den tredje frågan handlar om villkor. Ska alla samtal gå vidare, eller bara de som inte besvaras? Ska vidarekopplingen vara aktiv på kvällar och helger, eller bara när linjen är upptagen? Ska den stängas av när bemanningen är tillbaka? Här finns en praktisk fälla: villkorlig vidarekoppling kan vara svår att upptäcka och ännu svårare att städa bort. Ett företag som slår på vidarekoppling \"tillfälligt\" kan upptäcka månader senare att samtalen fortfarande går till ett nummer som inte längre används.",
+      "Den fjärde frågan är kostnaden. Källan påpekar att själva aktiveringen oftast är gratis, men att det kan tillkomma vanlig samtalsavgift för det vidarekopplade samtalet beroende på abonnemang. Det betyder att vidarekoppling inte är en kostnadsfri lösning – den är en kostnad som flyttas. För ett företag med många inkommande samtal kan den avgiften bli en post att räkna på, särskilt om samtalen dessutom inte leder till något.",
+      "Slutligen: vad händer efter samtalet? En vidarekoppling som landar hos en person som svarar men inte kan boka, inte kan svara på frågan eller inte kan logga ärendet, löser bara halva problemet. Det är därför beslutet om vidarekoppling bör tas tillsammans med beslutet om vad som ska hända när samtalet väl besvaras. Om målet är att varje samtal ska tas om hand, kvalificeras och leda vidare till en bokning eller ett ärende, då är vidarekoppling en transportsträcka – inte en lösning. Den som vill ha svar dygnet runt behöver en mottagare som faktiskt svarar, och det är den frågan som avgör om vidarekopplingen är värd att slå på."
+    ],
+    "links": [
+      {
+        "match": "en AI-receptionist",
+        "href": "https://menodi.se/telefonpassning"
+      },
+      {
+        "match": "en bokning eller ett ärende",
+        "href": "https://menodi.se/funktioner"
+      }
+    ],
+    "kind": "guider",
+    "sourceUrl": "https://menodi.se/guider/vidarekoppla-samtal",
+    "date": "2026.09.27"
+  }
+]

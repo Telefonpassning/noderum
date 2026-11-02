@@ -58,5 +58,30 @@
     "kind": "blog",
     "sourceUrl": "https://menodi.se/blogg/ai-receptionist-vs-telefonsvarare",
     "date": "2026.09.28"
+  },
+  {
+    "slug": "samarbetspartners-ai-receptionist-byraer",
+    "kind": "blog",
+    "title": "Samarbeten med byråer: så kan partners sälja AI-receptionist",
+    "description": "Noderum öppnar för samarbetspartners – marknadsföringsbyråer, redovisningsbyråer och konsulter. Fördelarna per partnertyp, samtalsstatistik och egen partnerinloggning.",
+    "date": "2026.11.02",
+    "body": [
+      "Noderum är studion bakom Menodi, och en av de frågor vi får oftast från byråer och konsulter är enkel: kan vi sälja det här till våra egna kunder? Svaret är ja. Under hösten har vi öppnat för samarbetspartners – B2B-marknadsföringsbyråer, redovisningsbyråer, IT-konsulter och andra som redan har ett förtroende hos småföretag med mycket inkommande samtal.",
+      "Varför partners? För att de bolag som tjänar mest på en AI-receptionist sällan letar efter en. En frisör, en tandklinik, en fastighetsförvaltare eller en elfirma tänker på sin vardag, inte på röstassistenter. Däremot pratar de redan med sin byrå om fler leads och med sin redovisare om var pengarna tar vägen. Där blir ett missat samtal en konkret siffra i stället för en abstrakt teknikfråga.",
+      "Lite siffror ger en bättre bild. I Menodis egen samtalstrafik de senaste 90 dagarna var ungefär sex av sju samtal inkommande och resten utgående. De inkommande samtalen var i snitt runt en och en halv minut, de utgående knappt en minut. Och omkring 30 procent av samtalen skedde utanför kontorstid – kvällar, tidiga morgnar och helger. Det är just de samtalen som annars landar i en telefonsvarare eller hos en konkurrent. Underlaget är litet och varierar mellan branscher, men mönstret är tydligt: efterfrågan kommer när den kommer, inte när någon sitter vid telefonen.",
+      "För en marknadsföringsbyrå är fördelen direkt. Byrån driver trafik med annonser och SEO, men tappar ofta kontrollen i sista steget – när kunden ringer och ingen svarar. Med en AI-receptionist på plats blir fler av de leads byrån skapar faktiskt bokningar, och byrån kan visa det. Det gör kampanjerna lättare att motivera och kundrelationen längre.",
+      "För en redovisningsbyrå handlar det mer om lönsamhet och rådgivning. Redovisaren ser siffrorna och vet vad en tjänst kostar i timmar. Att kunna peka på en konkret åtgärd – svara på varje samtal, dygnet runt, till en fast månadskostnad – är ett lätt råd att ge och lätt att räkna hem. Det stärker rollen som rådgivare och inte bara bokförare.",
+      "För IT-konsulter och systemleverantörer passar det som en naturlig del av ett digitaliseringspaket: växel, bokningssystem och kalender kopplas ihop, och samtalen får ett riktigt flöde i stället för att fastna. Gemensamt för alla partnertyper är att man inte behöver bygga något själv. Vi står för tekniken, agenterna och driften; partnern står för relationen.",
+      "Hur det fungerar i praktiken: varje samarbetspartner får en egen inloggning i Menodis adminpanel. Där ser partnern bara de kunder som kopplats till dem, och bara det som partnern har behörighet till för respektive kund. En byrå kan alltså följa sina kunders samtal och bokningar utan att se något annat, och vi kan ge mer eller mindre åtkomst per kund beroende på hur samarbetet ser ut. Det gör det enkelt att ta ansvar för kundrelationen utan att tumma på integriteten.",
+      "Ett hypotetiskt exempel: en byrå med tjugo lokala kunder i olika branscher – kliniker, verkstäder, salonger, hantverkare. Byrån tipsar sina kunder, vi sätter upp en receptionist för varje bolag, och byrån följer resultatet i sin egen vy. Kunden får fler svarade samtal, byrån får ett starkare case och en ny intäkt, och vi får nöjda kunder via någon de redan litar på.",
+      "Vill du veta mer om samarbeten, eller se hur partnervyn ser ut? Hör av dig till oss på Noderum, så berättar vi hur ett partnerskap kan se ut för just din verksamhet. Läs mer om produkten hos Menodi."
+    ],
+    "links": [
+      {
+        "match": "Läs mer om produkten hos Menodi",
+        "href": "https://menodi.se/"
+      }
+    ],
+    "sourceUrl": "https://menodi.se/"
   }
 ]

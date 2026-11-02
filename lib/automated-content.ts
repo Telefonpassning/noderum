@@ -9,6 +9,7 @@ type Entry = {
   body: string[]
   links: { match: string; href: string }[]
   sourceUrl: string
+  cover?: { src: string; width: number; height: number; alt: string; caption: string }
 }
 
 // Content Ops writes data only. A failed contract stops the build before publication.

@@ -82,6 +82,13 @@
         "href": "https://menodi.se/"
       }
     ],
-    "sourceUrl": "https://menodi.se/"
+    "sourceUrl": "https://menodi.se/",
+    "cover": {
+      "src": "/images/news/samarbetspartners-byra-mote.jpg",
+      "width": 1600,
+      "height": 893,
+      "alt": "En byråkonsult och en småföretagare vid ett mötesbord i trä, med en bärbar dator som visar en partnerpanel med gröna staplar för besvarade samtal och bokningar.",
+      "caption": "Partnern och kunden följer samtal och bokningar tillsammans. AI-genererad illustration."
+    }
   }
 ]
